@@ -1,13 +1,19 @@
 {
   "metadata": {
-    "projecte": "ITB LEAKS - CALCULADORA ASG",
-    "ultima_actualitzacio": "2025"
+    "projecte": "ITB Leaks - Data Cleaning",
+    "institucion": "INSTITUT",
+    "sub": "DOO DOO"
   },
-  "indicadores": [
-    { "titulo": "Producció Energètica", "valor_base": 1540.5, "unidad": "kWh", "tipo": "energy" },
-    { "titulo": "Consum Calefacció", "valor_base": 125, "unidad": "kWh/alu", "tipo": "ice" },
-    { "titulo": "Consum Aigua Total", "valor_base": 450, "unidad": "m³", "tipo": "water" },
-    { "titulo": "Residus Paper", "valor_base": 4.2, "unidad": "Kg/alu", "tipo": "paper" },
-    { "titulo": "Productes Neteja", "valor_base": 0.18, "unidad": "L/m²", "tipo": "clean" }
+  "indicadors_calculats": {
+    "import_total_facturat_eur": 5965.75,
+    "mitjana_mobils_aula_percent": 32.89,
+    "produccio_energetica_total_kwh": 1006.81,
+    "taxa_autoconsum_mitjana_percent": 97.36
+  },
+  "config_efectes": [
+    { "id": "produccio", "titol": "Producció Energètica", "clau": "produccio_energetica_total_kwh", "u": "kWh", "tipus": "energy" },
+    { "id": "factures", "titol": "Import Facturat", "clau": "import_total_facturat_eur", "u": "€", "tipus": "paper" },
+    { "id": "mobils", "titol": "Mòbils a l'Aula", "clau": "mitjana_mobils_aula_percent", "u": "%", "tipus": "clean" },
+    { "id": "autoconsum", "titol": "Taxa Autoconsum", "clau": "taxa_autoconsum_mitjana_percent", "u": "%", "tipus": "ice" }
   ]
 }
