@@ -1,0 +1,219 @@
+/* --- VARIABLES GLOBALS --- */
+:root {
+  --bg: #02020a;
+  --neon: #00ffcc;
+  --yellow: #f0ff00;
+  --panel: rgba(13, 13, 35, 0.8);
+  --glass-border: rgba(0, 255, 204, 0.3);
+}
+
+/* --- RESET & BASE --- */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg);
+  color: #fff;
+  font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Evita scroll perque fem servir el canvas de fons */
+}
+
+/* --- CANVAS DE FONS --- */
+#canvas-fx {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Sempre darrere del contingut */
+}
+
+/* --- NAVEGACIÓ --- */
+.cyber-nav {
+  padding: 1.5rem 3rem;
+  background: rgba(0, 0, 0, 0.9);
+  border-bottom: 3px solid var(--neon);
+  box-shadow: 0 0 25px rgba(0, 255, 204, 0.4);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.neon-text {
+  color: var(--neon);
+  text-shadow: 0 0 15px var(--neon);
+}
+
+/* --- LAYOUT PRINCIPAL --- */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 320px 1fr; /* Columna esquerra fixa, dreta flexible */
+  gap: 30px;
+  padding: 40px;
+  max-width: 1600px;
+  margin: auto;
+  height: calc(100vh - 100px);
+}
+
+/* --- PANELL DE CONTROL (ESQUERRA) --- */
+.glass {
+  background: var(--panel);
+  border: 1px solid var(--glass-border);
+  padding: 30px;
+  border-radius: 20px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.section-title {
+  font-size: 1.2rem;
+  margin-bottom: 25px;
+  color: var(--neon);
+  border-bottom: 1px solid rgba(0, 255, 204, 0.2);
+  padding-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+.input-group {
+  margin-bottom: 25px;
+}
+
+.input-group label {
+  display: block;
+  color: var(--neon);
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  opacity: 0.8;
+}
+
+.input-group input {
+  width: 100%;
+  background: #000;
+  border: 2px solid var(--neon);
+  color: #fff;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  font-family: monospace;
+  outline: none;
+  transition: 0.3s;
+}
+
+.input-group input:focus {
+  box-shadow: 0 0 15px var(--neon);
+}
+
+/* --- GRID DE RESULTATS (DRETA) --- */
+.results-area {
+  overflow-y: auto; /* Permet scroll si hi ha moltes targetes */
+  padding-right: 10px;
+}
+
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+/* --- TARGETES (KPI CARDS) --- */
+.kpi-card {
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid var(--neon);
+  border-left: 8px solid var(--neon); /* Borda gruixuda que demanaves */
+  padding: 30px;
+  border-radius: 12px;
+  transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+}
+
+.kpi-card:hover {
+  transform: translateY(-10px);
+  background: rgba(0, 255, 204, 0.15);
+  box-shadow: 0 0 30px rgba(0, 255, 204, 0.3);
+}
+
+.kpi-card h3 {
+  font-size: 1rem;
+  text-transform: uppercase;
+  margin: 0;
+  letter-spacing: 1px;
+  color: #fff;
+  opacity: 0.9;
+}
+
+.val {
+  font-size: 2.8rem;
+  color: var(--yellow);
+  font-weight: 900;
+  margin: 15px 0;
+  text-shadow: 0 0 10px rgba(240, 255, 0, 0.3);
+}
+
+small {
+  font-size: 1rem;
+  color: var(--neon);
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* --- EFECTES EXTRAS --- */
+.scanline {
+  width: 100%;
+  height: 4px;
+  background: rgba(0, 255, 204, 0.03);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  pointer-events: none;
+  animation: scan 6s linear infinite;
+}
+
+@keyframes scan {
+  from { top: 0; }
+  to { top: 100%; }
+}
+
+/* --- STATUS LED --- */
+.system-status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 30px;
+  font-size: 0.7rem;
+  color: var(--neon);
+}
+
+.led {
+  width: 8px;
+  height: 8px;
+  background: var(--neon);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--neon);
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(1.2); }
+}
+
+/* Scrollbar Estilitzat per Chrome/Edge */
+.results-area::-webkit-scrollbar {
+  width: 6px;
+}
+.results-area::-webkit-scrollbar-thumb {
+  background: var(--neon);
+  border-radius: 10px;
+}
