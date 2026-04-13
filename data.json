@@ -1,19 +1,27 @@
 {
   "metadata": {
     "projecte": "ITB Leaks - Data Cleaning",
-    "institucion": "INSTITUT",
-    "sub": "DOO DOO"
+    "data_generacio": "2025-03-23",
+    "fonts": [
+      "Aigua-image001", "Aigua-image002", "Aigua-image003", "Desclasificat",
+      "F035-MaterialOficina-0014_7010419754", "F036-Lyreco-MaterialOficinaRecanvisPissarraPaper",
+      "INDICADORS Mobils a l'aula 2024-2025.pdf", "Plant Report_ITB_01-2025.xlsx"
+    ]
   },
+  "factures": [
+    { "data": "2024-09-13", "producte": "SERVEIS EXTRAORDINARIS", "import_total": 1012.98 },
+    { "data": "2024-07-05", "producte": "REPARACIÓ COMPRESSOR", "import_total": 348.48 },
+    { "data": "2024-05-23", "producte": "ELIMINAR CIRCUITS OBSOLETS", "import_total": 2548.02 },
+    { "data": "2024-10-31", "producte": "PAPEL NAVIGATOR UNIVERSAL", "import_total": 198.56 }
+  ],
+  "energia": [
+    {"data": "2025-01-01", "pv_yield_kwh": 42.56, "self_consumption_rate": 93.84},
+    {"data": "2025-01-22", "pv_yield_kwh": 5.87, "self_consumption_rate": 100.00}
+  ],
   "indicadors_calculats": {
     "import_total_facturat_eur": 5965.75,
     "mitjana_mobils_aula_percent": 32.89,
     "produccio_energetica_total_kwh": 1006.81,
     "taxa_autoconsum_mitjana_percent": 97.36
-  },
-  "config_efectes": [
-    { "id": "produccio", "titol": "Producció Energètica", "clau": "produccio_energetica_total_kwh", "u": "kWh", "tipus": "energy" },
-    { "id": "factures", "titol": "Import Facturat", "clau": "import_total_facturat_eur", "u": "€", "tipus": "paper" },
-    { "id": "mobils", "titol": "Mòbils a l'Aula", "clau": "mitjana_mobils_aula_percent", "u": "%", "tipus": "clean" },
-    { "id": "autoconsum", "titol": "Taxa Autoconsum", "clau": "taxa_autoconsum_mitjana_percent", "u": "%", "tipus": "ice" }
-  ]
+  }
 }
