@@ -1,8 +1,7 @@
 {
   "metadata": {
     "projecte": "ITB Leaks - Data Cleaning",
-    "institucion": "INSTITUT",
-    "sub": "DOO DOO"
+    "data_generacio": "2025-03-23"
   },
   "indicadors_calculats": {
     "import_total_facturat_eur": 5965.75,
@@ -10,10 +9,30 @@
     "produccio_energetica_total_kwh": 1006.81,
     "taxa_autoconsum_mitjana_percent": 97.36
   },
-  "config_efectes": [
-    { "id": "produccio", "titol": "Producció Energètica", "clau": "produccio_energetica_total_kwh", "u": "kWh", "tipus": "energy" },
-    { "id": "factures", "titol": "Import Facturat", "clau": "import_total_facturat_eur", "u": "€", "tipus": "paper" },
-    { "id": "mobils", "titol": "Mòbils a l'Aula", "clau": "mitjana_mobils_aula_percent", "u": "%", "tipus": "clean" },
-    { "id": "autoconsum", "titol": "Taxa Autoconsum", "clau": "taxa_autoconsum_mitjana_percent", "u": "%", "tipus": "ice" }
+  "visual_config": [
+    { 
+      "titol": "Producció Energètica", 
+      "clau": "produccio_energetica_total_kwh", 
+      "u": "kWh", 
+      "tipus": "energy" 
+    },
+    { 
+      "titol": "Import Facturat", 
+      "clau": "import_total_facturat_eur", 
+      "u": "€", 
+      "tipus": "paper" 
+    },
+    { 
+      "titol": "Mòbils a l'Aula", 
+      "clau": "mitjana_mobils_aula_percent", 
+      "u": "%", 
+      "tipus": "clean" 
+    },
+    { 
+      "titol": "Taxa Autoconsum", 
+      "clau": "taxa_autoconsum_mitjana_percent", 
+      "u": "%", 
+      "tipus": "ice" 
+    }
   ]
 }
